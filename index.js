@@ -6,7 +6,6 @@ require('dotenv').config();
 
 //--------------------------------
 const AdminUserRoute = require('./routes/AdminUserRoute');
-const CustomerRoute = require('./routes/CustomerRoute');
 const ContactUsMessageRoute= require('./routes/ContactUsMessageRoute');
 //--------------------------------
 
@@ -18,8 +17,6 @@ const app = express();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(cors())
-
-
 
 mongoose.connect(
     'mongodb://127.0.0.1:27017/MySLTravels',
@@ -40,6 +37,5 @@ mongoose.connect(
 
 //------------------------------
 app.use('/api/v1/adminUserRoute', AdminUserRoute);
-app.use('/api/v1/customerRoute', CustomerRoute);
 app.use('/api/v1/contactUsMessageRoute', ContactUsMessageRoute);
 //------------------------------
