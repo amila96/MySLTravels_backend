@@ -7,6 +7,7 @@ require('dotenv').config();
 //--------------------------------
 const AdminUserRoute = require('./routes/AdminUserRoute');
 const ContactUsMessageRoute= require('./routes/ContactUsMessageRoute');
+const AirportPickupBookingRoute= require('./routes/AirportPickupBookingsRoute');
 //--------------------------------
 
 //const app = express();
@@ -38,4 +39,5 @@ mongoose.connect(
 //------------------------------
 app.use('/api/v1/adminUserRoute', AdminUserRoute);
 app.use('/api/v1/contactUsMessageRoute', ContactUsMessageRoute);
+app.use('/api/v1/airportPickupBookingRoute', AirportPickupBookingRoute);
 //------------------------------

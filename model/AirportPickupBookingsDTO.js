@@ -1,0 +1,40 @@
+const mongoose = require('mongoose');
+const AirportPickupBookingsSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    passportNumber:{
+        type:Number,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    numberOfPassengers:{
+        type:Number,
+        required:true
+    },
+    vehicleType:{
+        type:String,
+        required:true
+    },
+    date:{
+        type:String,
+        required:true
+    },
+    time:{
+        type:String,
+        required:true
+    },
+    location:{
+        type:String,
+        required:true
+    },
+    distance:{
+        type:Number,
+        required:true
+    }
+});
+module.exports=mongoose.model('AirportPickupBookings',AirportPickupBookingsSchema);

@@ -55,7 +55,7 @@ const loginUser = (req, resp) => {
                     if (finalResult) {
                         resp.status(200).json({message: 'success', token: token});
                     } else {
-                        resp.status(200).json({message: 'Failed!'});
+                        resp.status(200).json({message: 'Please check your password'});
                     }
                 });
 
