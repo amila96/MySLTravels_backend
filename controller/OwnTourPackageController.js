@@ -1,19 +1,26 @@
-const ContactUsMessageDTO= require('../model/ContactUsMessageDTO');
+const OwnTourPackageDTO= require('../model/OwnTourPackageDTO');
 
-const saveMessage = (req, resp) => {
+const saveOwnTourpackage = (req, resp) => {
     try {
 
         console.log(req.body);
 
-        const contactUsMessage = new ContactUsMessageDTO({
+        const ownTourPackage = new OwnTourPackageDTO({
             name: req.body.name,
+            passportNumber: req.body.passportNumber,
             email: req.body.email,
-            subject: req.body.subject,
-            message: req.body.message
+            country: req.body.country,
+            date: req.body.date,
+            places: req.body.places,
+            activities: req.body.activities,
+            vehicle: req.body.vehicle,
+            hotel: req.body.hotel,
+            NumOfTravellers: req.body.NumOfTravellers,
+            tourGuide: req.body.tourGuide
         });
 
-        contactUsMessage.save().then(result => {
-            resp.status(200).json({message: 'Success!'});
+        ownTourPackage.save().then(result => {
+            resp.status(200).json({message: 'We will send you an email of confirmation'});
         }).catch(exception => {
             console.log(exception);
             resp.status(500).json({error: exception});
@@ -25,11 +32,10 @@ const saveMessage = (req, resp) => {
         resp.status(500).json({error: e});
     }
 }
-
-const deleteMessage = (req, resp) => {
+const deleteOwnTourPackage = (req, resp) => {
     try {
 
-        ContactUsMessageDTO.deleteOne({_id: req.headers.id}).then(result => {
+        OwnTourPackageDTO.deleteOne({_id: req.headers.id}).then(result => {
 
             if (result.deletedCount > 0) {
                 resp.status(200).json({message: 'Deleted!'});
@@ -45,10 +51,10 @@ const deleteMessage = (req, resp) => {
         resp.status(500).json({error: e});
     }
 }
-const getAllMessages = (req, resp) => {
+const getAllOwnTourPackages = (req, resp) => {
     try {
         // pagination
-        ContactUsMessageDTO.find().then(result => {
+        OwnTourPackageDTO.find().then(result => {
 
             resp.status(200).json({dataSet: result});
 
@@ -62,5 +68,5 @@ const getAllMessages = (req, resp) => {
     }
 }
 module.exports = {
-    saveMessage,deleteMessage,getAllMessages
+    saveOwnTourpackage,deleteOwnTourPackage,getAllOwnTourPackages
 }

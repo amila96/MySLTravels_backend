@@ -1,0 +1,48 @@
+const mongoose = require('mongoose');
+const TourPackageBookingsSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    passportNumber:{
+        type:Number,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    country:{
+        type:String,
+        required:true
+    },
+    language:{
+        type:String,
+        required:true
+    },
+    vehicleType:{
+        type:String,
+        required:true
+    },
+    numberOfTravellers:{
+        type:Number,
+        required:true
+    },
+    date:{
+        type:String,
+        required:true
+    },
+    hotelRoomType:{
+        type:String,
+        required:true
+    },
+    numberOfRooms:{
+        type:Number,
+        required:true
+    },
+    tourGuide:{
+        type:String,
+        required:true
+    }
+});
+module.exports=mongoose.model('TourPackageBookings',TourPackageBookingsSchema);
